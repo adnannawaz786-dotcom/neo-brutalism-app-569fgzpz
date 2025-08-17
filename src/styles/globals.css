@@ -1,0 +1,292 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Neo-Brutalist Global Styles */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap');
+
+:root {
+  --brutalist-black: #000000;
+  --brutalist-white: #ffffff;
+  --brutalist-yellow: #ffff00;
+  --brutalist-pink: #ff69b4;
+  --brutalist-cyan: #00ffff;
+  --brutalist-lime: #32ff32;
+  --brutalist-orange: #ff6600;
+  --brutalist-purple: #9932cc;
+  --brutalist-red: #ff0000;
+  --brutalist-blue: #0066ff;
+  --shadow-brutal: 8px 8px 0px var(--brutalist-black);
+  --shadow-brutal-hover: 12px 12px 0px var(--brutalist-black);
+  --border-thick: 4px solid var(--brutalist-black);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'JetBrains Mono', monospace;
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--brutalist-white);
+  color: var(--brutalist-black);
+  font-weight: 400;
+  overflow-x: hidden;
+}
+
+/* Brutalist Base Components */
+@layer components {
+  .brutalist-container {
+    @apply max-w-4xl mx-auto px-4 py-8;
+  }
+
+  .brutalist-card {
+    @apply bg-white border-4 border-black p-6 relative;
+    box-shadow: var(--shadow-brutal);
+    transition: all 0.1s ease-in-out;
+  }
+
+  .brutalist-card:hover {
+    box-shadow: var(--shadow-brutal-hover);
+    transform: translate(-4px, -4px);
+  }
+
+  .brutalist-button {
+    @apply bg-yellow-400 border-4 border-black px-6 py-3 font-bold text-black uppercase tracking-wider relative cursor-pointer;
+    box-shadow: 4px 4px 0px var(--brutalist-black);
+    transition: all 0.1s ease-in-out;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .brutalist-button:hover {
+    box-shadow: 6px 6px 0px var(--brutalist-black);
+    transform: translate(-2px, -2px);
+  }
+
+  .brutalist-button:active {
+    box-shadow: 2px 2px 0px var(--brutalist-black);
+    transform: translate(2px, 2px);
+  }
+
+  .brutalist-button-pink {
+    @apply bg-pink-400;
+  }
+
+  .brutalist-button-cyan {
+    @apply bg-cyan-400;
+  }
+
+  .brutalist-button-lime {
+    @apply bg-lime-400;
+  }
+
+  .brutalist-button-orange {
+    @apply bg-orange-400;
+  }
+
+  .brutalist-button-red {
+    @apply bg-red-400;
+  }
+
+  .brutalist-input {
+    @apply border-4 border-black px-4 py-3 text-black bg-white font-mono font-bold;
+    box-shadow: inset 4px 4px 0px rgba(0, 0, 0, 0.1);
+  }
+
+  .brutalist-input:focus {
+    @apply outline-none bg-yellow-100;
+    box-shadow: inset 6px 6px 0px rgba(0, 0, 0, 0.15);
+  }
+
+  .brutalist-textarea {
+    @apply border-4 border-black px-4 py-3 text-black bg-white font-mono resize-none;
+    box-shadow: inset 4px 4px 0px rgba(0, 0, 0, 0.1);
+    min-height: 120px;
+  }
+
+  .brutalist-textarea:focus {
+    @apply outline-none bg-yellow-100;
+    box-shadow: inset 6px 6px 0px rgba(0, 0, 0, 0.15);
+  }
+
+  .brutalist-title {
+    @apply text-4xl md:text-6xl font-black uppercase tracking-wider mb-8 relative;
+    font-family: 'JetBrains Mono', monospace;
+    text-shadow: 4px 4px 0px var(--brutalist-yellow);
+  }
+
+  .brutalist-subtitle {
+    @apply text-2xl md:text-3xl font-bold uppercase tracking-wide mb-6;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .brutalist-text {
+    @apply font-mono font-bold text-lg leading-relaxed;
+  }
+
+  .brutalist-badge {
+    @apply inline-block bg-lime-400 border-2 border-black px-3 py-1 text-sm font-bold uppercase tracking-wide;
+    box-shadow: 2px 2px 0px var(--brutalist-black);
+  }
+
+  .brutalist-badge-completed {
+    @apply bg-green-400 line-through;
+  }
+
+  .brutalist-badge-pending {
+    @apply bg-orange-400;
+  }
+
+  .brutalist-badge-urgent {
+    @apply bg-red-400;
+  }
+
+  .brutalist-checkbox {
+    @apply appearance-none w-6 h-6 border-4 border-black bg-white relative cursor-pointer;
+    box-shadow: 2px 2px 0px var(--brutalist-black);
+  }
+
+  .brutalist-checkbox:checked {
+    @apply bg-lime-400;
+  }
+
+  .brutalist-checkbox:checked::after {
+    content: '✓';
+    @apply absolute inset-0 flex items-center justify-center text-black font-black text-lg;
+  }
+
+  .brutalist-delete-btn {
+    @apply bg-red-400 border-2 border-black px-3 py-2 font-bold text-black cursor-pointer;
+    box-shadow: 2px 2px 0px var(--brutalist-black);
+    transition: all 0.1s ease-in-out;
+  }
+
+  .brutalist-delete-btn:hover {
+    box-shadow: 4px 4px 0px var(--brutalist-black);
+    transform: translate(-2px, -2px);
+  }
+
+  .brutalist-form {
+    @apply bg-cyan-100 border-4 border-black p-6;
+    box-shadow: var(--shadow-brutal);
+  }
+
+  .brutalist-task-card {
+    @apply bg-white border-4 border-black p-4 mb-4 relative;
+    box-shadow: 6px 6px 0px var(--brutalist-black);
+    transition: all 0.1s ease-in-out;
+  }
+
+  .brutalist-task-card:hover {
+    box-shadow: 8px 8px 0px var(--brutalist-black);
+    transform: translate(-2px, -2px);
+  }
+
+  .brutalist-task-completed {
+    @apply opacity-75 bg-gray-100;
+  }
+
+  .brutalist-priority-high {
+    @apply border-l-8 border-l-red-500;
+  }
+
+  .brutalist-priority-medium {
+    @apply border-l-8 border-l-orange-500;
+  }
+
+  .brutalist-priority-low {
+    @apply border-l-8 border-l-green-500;
+  }
+
+  .brutalist-grid {
+    @apply grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3;
+  }
+
+  .brutalist-header {
+    @apply bg-yellow-400 border-b-4 border-black p-6 mb-8;
+    box-shadow: 0 8px 0px var(--brutalist-black);
+  }
+
+  .brutalist-footer {
+    @apply bg-pink-400 border-t-4 border-black p-6 mt-12 text-center;
+    box-shadow: 0 -8px 0px var(--brutalist-black);
+  }
+}
+
+/* Custom Animations */
+@keyframes brutalist-shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-2px); }
+  75% { transform: translateX(2px); }
+}
+
+@keyframes brutalist-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+.brutalist-shake {
+  animation: brutalist-shake 0.3s ease-in-out;
+}
+
+.brutalist-bounce {
+  animation: brutalist-bounce 0.5s ease-in-out;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--brutalist-white);
+  border: 2px solid var(--brutalist-black);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--brutalist-yellow);
+  border: 2px solid var(--brutalist-black);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--brutalist-pink);
+}
+
+/* Selection Styling */
+::selection {
+  background: var(--brutalist-yellow);
+  color: var(--brutalist-black);
+}
+
+::-moz-selection {
+  background: var(--brutalist-yellow);
+  color: var(--brutalist-black);
+}
+
+/* Focus Styles */
+*:focus {
+  outline: 4px solid var(--brutalist-pink);
+  outline-offset: 2px;
+}
+
+/* Print Styles */
+@media print {
+  * {
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  
+  .brutalist-card,
+  .brutalist-button,
+  .brutalist-form {
+    box-shadow: none !important;
+    transform: none !important;
+  }
+}
